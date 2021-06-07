@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% if autorefresh == True %}
+        <meta http-equiv="refresh" content="{{ timing }}">
+        {% endif %}
+        <title>HelpDesk</title>
+        <link rel="icon" href="/static/Flag.gif" type="image/gif" sizes="16x16">
+        <link rel="stylesheet" href="/static/bootstrap.css">
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+        <br>
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="help__title">
+		<h6>
+                    {% if autorefresh == True %}
+                    Auto Refresh: On ({{timing}} sec)
+                    {% else %}
+                    Auto Refresh: Off
+                    {% endif %}
+		</h6>
+                </div>
+                <div class="row text-content-center">
+                    <div class="col-4 text-center">
+                        <label id="date">Поточна дата: {{curdate}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+            <h4 class="table__title">Статистика за поточний день</h4>
+            <table class="table">
+                <tr class="table__header">
+                    {% for header in headings["sql1"] %}
+                    <th class="table__cell">{{ header }}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in data["sql1"] %}
+                <tr class="table__row">
+                    {% for cell in row %}
+                    <td class="table__cell{{ loop.index }}">{{ cell }}</td>
+                    {% endfor %}
+                </tr>    
+                {% endfor %}    
+            </table>
+            <br>
+            <h4 class="table__title">Вирішено запитів за поточний день групами</h4>
+            <table class="table">
+                <tr class="table__header">
+                    {% for header in headings["sql2"] %}
+                    <th class="table__cell">{{ header }}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in data["sql2"] %}
+                <tr class="table__row">
+                    {% for cell in row %}
+                    <td class="table__cell{{ loop.index }}">{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            </div>
+        
+            <div class="col-md-4">
+            <h4 class="table__title">Вирішено запитів за поточний день виконавцями</h4>
+            <table class="table">
+                <tr class="table__header">
+                    {% for header in headings["sql3"] %}
+                    <th class="table__cell">{{ header }}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in data["sql3"] %}
+                <tr class="table__row">
+                    {% for cell in row %}
+                    <td class="table__cell{{ loop.index }}">{{ cell }}</td>
+                    {% endfor %}
+                </tr>    
+                {% endfor %}    
+            </table>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "autorefresh": false,
+    "timing": 5,
+    "mysql":{
+        "host":"localhost",
+        "user":"root",
+        "password":"12345",
+        "database":"world",
+        "port": 3306
+    },
+    "queries":{
+        
+        "sql1":"SELECT 'Кількість запитів без Виконавця всього' as Item_Name, 123 as Item_Count union all\n SELECT 'Кількість запитів без Виконавця, що зареєстровано сьогодні (нові)' as Item_Name, 14  as Item_Count union all\n SELECT 'Зареєстровано нових запитів за поточний день' as Item_Name, 23  as Item_Count union all\n SELECT 'Вирішено запитів за поточний день' as Item_Name, 97  as Item_Count\n",
+        "sql2":"SELECT 'Група 1', 230 UNION ALL SELECT 'Група 1', 130 UNION ALL SELECT 'Група 1', 87",
+        "sql3":"SELECT 'Иванов', 230 UNION ALL SELECT 'Петров', 320 UNION ALL SELECT 'Петров', 320 UNION ALL SELECT 'Петров', 320 UNION ALL SELECT 'Петров', 320 UNION ALL SELECT 'Петров', 320 UNION ALL SELECT 'Петров', 320"
+    }
+}

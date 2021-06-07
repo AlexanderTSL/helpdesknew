@@ -1,0 +1,41 @@
+.table {
+    border-spacing: 0;
+    margin: 1rem;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+.help__title {
+    margin: 1rem;
+    color: blue;
+}
+
+.table__title {
+    margin: 1rem;
+}
+
+.table__row {
+    height: 30px;
+}
+
+.table__row:nth-child(even) {
+    background-color: #e5e5e5;
+    height: 30px;
+}
+
+.table__header {
+    text-align: left;
+}
+
+.table__cell {
+    padding: 1px;
+}
+
+.table__cell1 {
+    padding: 1px;
+    width: 90%;
+}
+.table__cell2 {
+    padding: 1px;
+    width: 10%;
+}
